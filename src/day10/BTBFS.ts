@@ -1,0 +1,26 @@
+export default function bfs(head: BinaryNode<number>, needle: number): boolean {
+  let q = [head];
+
+  while (q.length) {
+    let curr = q.shift();
+
+    if (!curr) {
+      return false;
+    }
+
+    if (curr.value === needle) {
+      return true;
+    }
+
+    if (curr.left) {
+      q.push(curr.left);
+    }
+
+    if (curr.right) {
+      q.push(curr.right);
+    }
+  }
+
+  return false;
+}
+
